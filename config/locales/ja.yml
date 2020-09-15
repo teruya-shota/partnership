@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      id: ID
+      created_at: 作成日時
+      updated_at: 更新日時
+      user:
+        name: 名前
+        description: 自己紹介
+        privacy: 公開設定
+  enums:
+    user:
+      privacy:
+        published: 公開
+        closed: 非公開
