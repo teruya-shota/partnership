@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+devise_for :admins, controllers: {
+        sessions: 'admins/sessions'
+  }
   namespace :admin do
     get 'plan/new'
     get 'customer/new'
@@ -7,7 +9,9 @@ Rails.application.routes.draw do
     get 'language/new'
   end
 
-  namespace :public do
+  devise_for :customers
+
+  scope module: :public do
     get 'userroom/new'
     get 'room/new'
     get 'relationship/new'
@@ -17,9 +21,5 @@ Rails.application.routes.draw do
     get 'plan/new'
   end
   
-  devise_for :customers
-  devise_for :admins, controllers: {
-        sessions: 'admins/sessions'
-      }
-    end
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
