@@ -1,24 +1,22 @@
 Rails.application.routes.draw do
 devise_for :admins, controllers: {
-        sessions: 'admins/sessions'
+        sessions: 'admins/sessions',
   }
   namespace :admin do
-    get 'plan/new'
-    get 'customer/new'
-    get 'genre/new'
-    get 'language/new'
+    resources :customers
+    resources :genres
+    resources :languages
+    resources :plans
   end
 
   devise_for :customers
-
   scope module: :public do
-    get 'userroom/new'
-    get 'room/new'
-    get 'relationship/new'
-    get 'like/new'
-    get 'customer/new'
-    get 'chat/new'
-    get 'plan/new'
+    resources :chats
+    resources :likes
+    resources :plans
+    resources :relationships
+    resources :rooms
+    resources :userrooms
   end
   
 end
